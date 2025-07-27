@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Same head as index.html -->
+    <title>Our Services - SIBO Agency</title>
+
+        <style>
+        nav ul.nav-links li a:hover,
+        .mobile-menu ul li a:hover {
+            color: #007BFF;
+            text-decoration: underline;
+        }
+        nav ul.nav-links li a.active {
+            font-weight: bold;
+            color: #007BFF;
+        }
+        nav ul.nav-links li.resources-dropdown {
+            position: relative;
+        }
+        nav ul.nav-links li.resources-dropdown ul {
+            display: none;
+            position: absolute;
+            background: #fff;
+            list-style: none;
+            padding: 0.5em;
+            top: 100%;
+            left: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        nav ul.nav-links li.resources-dropdown:hover ul {
+            display: block;
+        }
+        </style>
+        
+</head>
+<body>
+    <!-- Header same as index.html -->
+
+    <main class="services-page">
+        <div class="container">
+            <h1>Our Sales Solutions</h1>
+            
+            <div class="service-filters">
+                <!-- Filter buttons will be added here -->
+            </div>
+            
+            <div class="services-grid">
+                <!-- Service cards will be populated here -->
+            </div>
+        </div>
+    </main>
+
+    <script src="js/services.js"></script>
+</body>
+</html>
