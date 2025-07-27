@@ -1,0 +1,16 @@
+/* Start with mobile-first base styles */
+:root {
+    --primary: #0056b3;
+    --secondary: #ff7d00;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}

@@ -1,0 +1,10 @@
+# Install webp tools (Linux/macOS)
+brew install webp  # macOS
+sudo apt-get install webp  # Ubuntu
+
+# Convert hero image
+cwebp -q 80 images/hero.jpg -o images/hero.webp
+
+# Create responsive image sets
+convert images/hero.jpg -resize 1200x images/hero-md.jpg
+convert images/hero.jpg -resize 800x images/hero-sm.jpg
