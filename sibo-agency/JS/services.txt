@@ -1,0 +1,42 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const services = [
+        {
+            id: 1,
+            title: "Direct Sales Agents",
+            category: "field",
+            excerpt: "Professional field agents for product launches and customer acquisition",
+            image: "images/services/dsa.jpg"
+        },
+        // More service objects...
+    ];
+
+    const renderServices = (filter = 'all') => {
+        const filtered = filter === 'all' 
+            ? services 
+            : services.filter(s => s.category === filter);
+        
+        const html = filtered.map(service => `
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('${service.image}')"></div>
+                <div class="service-content">
+                    <h3>${service.title}</h3>
+                    <p>${service.excerpt}</p>
+                    <a href="#" class="btn btn-primary">Details</a>
+                </div>
+            </div>
+        `).join('');
+        
+        document.querySelector('.services-grid').innerHTML = html;
+    };
+
+    // Initial render
+    renderServices();
+    
+    // Filter functionality
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const filter = this.dataset.filter;
+            renderServices(filter);
+        });
+    });
+});

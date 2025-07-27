@@ -1,0 +1,54 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const articles = [
+        {
+            id: 1,
+            title: "5 Retail Trends in Kenya",
+            category: "retail",
+            date: "2023-06-15",
+            excerpt: "Latest trends in Kenyan retail sales",
+            image: "images/blog/retail-trends.jpg"
+        },
+        // More articles...
+    ];
+
+    function renderBlog(filter = 'all', search = '') {
+        const filtered = articles.filter(article => {
+            const matchesCategory = filter === 'all' || article.category === filter;
+            const matchesSearch = article.title.toLowerCase().includes(search.toLowerCase()) || 
+                                article.excerpt.toLowerCase().includes(search.toLowerCase());
+            return matchesCategory && matchesSearch;
+        });
+
+        const html = filtered.map(article => `
+            <article class="blog-post">
+                <img src="${article.image}" alt="${article.title}">
+                <div class="post-content">
+                    <span class="category">${article.category}</span>
+                    <h2><a href="#">${article.title}</a></h2>
+                    <p>${article.excerpt}</p>
+                    <time>${new Date(article.date).toLocaleDateString()}</time>
+                </div>
+            </article>
+        `).join('');
+        
+        document.querySelector('.blog-grid').innerHTML = html;
+    }
+
+    // Initial render
+    renderBlog();
+
+    // Event listeners
+    document.getElementById('search').addEventListener('input', function() {
+        renderBlog(
+            document.getElementById('category').value,
+            this.value
+        );
+    });
+
+    document.getElementById('category').addEventListener('change', function() {
+        renderBlog(
+            this.value,
+            document.getElementById('search').value
+        );
+    });
+});
